@@ -237,13 +237,13 @@ spec:
             - mountPath: /hadoop/dfs/data
               name: hadoop-datanode
       restartPolicy: Always
-      volumeClaimTemplates:
-        - metadata:
-            name: hadoop-datanode
-          spec:
-            accessModes: [ "ReadWriteOnce" ]
-            storageClassName: "hadoop-datanode-class"
-            resources:
-              requests:
-                storage: 100Mi
+  volumeClaimTemplates:
+    - metadata:
+        name: hadoop-datanode
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "hadoop-datanode-class"
+        resources:
+          requests:
+            storage: 100Mi
 status: {}

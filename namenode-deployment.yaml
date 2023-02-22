@@ -29,8 +29,7 @@ spec:
           image: busybox
           command: ["sh", "-c", "rm -rf /hadoop/dfs/name/lost+found"]
           volumeMounts:
-          - name: hdfs-name-pv-claim
-            mountPath: /hadoop/dfs/name 
+          - name: hadoop-namenode
       containers:
         - env:
             - name: CLUSTER_NAME
