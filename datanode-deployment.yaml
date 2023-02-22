@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   annotations:
     kompose.cmd: C:\Users\Chengcheng Ding\Documents\Srcs\docker-hadoop\kompose.exe convert
@@ -9,11 +9,12 @@ metadata:
     io.kompose.service: datanode
   name: datanode
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: datanode
-  serviceName: "datanode"
+  strategy:
+    type: Recreate
   template:
     metadata:
       annotations:
@@ -236,12 +237,8 @@ spec:
             - mountPath: /hadoop/dfs/data
               name: hadoop-datanode
       restartPolicy: Always
-  volumeClaimTemplates:
-  - metadata:
-      name: hadoop-datanode
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 100Mi
+      volumes:
+        - name: hadoop-datanode
+          persistentVolumeClaim:
+            claimName: hadoop-datanode
 status: {}
