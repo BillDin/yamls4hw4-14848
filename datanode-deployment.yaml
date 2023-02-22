@@ -236,9 +236,6 @@ spec:
             - mountPath: /hadoop/dfs/data
               name: hadoop-datanode
       restartPolicy: Always
-      volumeMounts:
-        - name: datanode
-          mountPath: /hadoop/dfs/data
   volumeClaimTemplates:
     - metadata:
         name: hadoop-datanode
