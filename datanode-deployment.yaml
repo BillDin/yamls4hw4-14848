@@ -241,7 +241,6 @@ spec:
       name: hadoop-datanode
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "hadoop-datanode-class"
       resources:
         requests:
           storage: 100Mi
