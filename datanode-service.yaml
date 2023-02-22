@@ -17,3 +17,12 @@ spec:
     io.kompose.service: datanode
 status:
   loadBalancer: {}
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: hadoop-datanode-class
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-ssd
+  fsType: ext4
