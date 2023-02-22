@@ -237,12 +237,12 @@ spec:
               name: hadoop-datanode
       restartPolicy: Always
   volumeClaimTemplates:
-    - metadata:
-        name: hadoop-datanode
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        storageClassName: "hadoop-datanode-class"
-        resources:
-          requests:
-            storage: 100Mi
+  - metadata:
+      name: hadoop-datanode
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "hadoop-datanode-class"
+      resources:
+        requests:
+          storage: 100Mi
 status: {}
