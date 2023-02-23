@@ -23,3 +23,14 @@ spec:
     io.kompose.service: namenode
 status:
   loadBalancer: {}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-ingress
+spec:
+  defaultBackend:
+    service:
+      name: namenode
+      port:
+        number: 9870
